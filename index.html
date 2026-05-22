@@ -2,32 +2,309 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Мои проекты | Портфолио разработчика</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Шапка */
+        .header {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: white;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 1rem auto 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Секция проектов */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 3rem 0 2rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #667eea;
+        }
+
+        /* Пустое состояние */
+        .empty-state {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 3rem;
+            color: white;
+        }
+
+        .empty-state p {
+            margin: 1rem 0;
+        }
+
+        .github-link {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .github-link:hover {
+            transform: scale(1.05);
+        }
+
+        /* Футер */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.75rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <!-- Шапка с информацией о вас -->
         <div class="header">
-            <div class="avatar">👨‍💻</div>
+            <div class="avatar">
+                👨‍💻
+            </div>
             <h1>Иван Разработчик</h1>
-            <div class="subtitle">Full-stack разработчик | Open Source энтузиаст</div>
-            <div class="bio">Создаю веб-приложения и делюсь кодом с сообществом.</div>
+            <div class="subtitle">
+                Full-stack разработчик | Open Source энтузиаст
+            </div>
+            <div class="bio">
+                Создаю веб-приложения и делюсь кодом с сообществом. 
+                Здесь вы найдёте мои пет-проекты и эксперименты.
+            </div>
         </div>
 
+        <!-- Секция с проектами -->
         <h2 class="section-title">🚀 Мои проекты</h2>
-        <div class="projects-grid" id="projects-container"></div>
+        
+        <div class="projects-grid" id="projects-container">
+            <!-- Проекты будут добавлены через JavaScript -->
+        </div>
 
+        <!-- Футер -->
         <div class="footer">
             <div class="social-links">
-                <a href="https://github.com/yourusername">GitHub</a>
-                <a href="https://t.me/yourusername">Telegram</a>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://t.me/yourusername" target="_blank">Telegram</a>
                 <a href="mailto:your@email.com">Email</a>
             </div>
-            <div>© 2026 Иван Разработчик | Сделано с ❤️</div>
+            <div>
+                © 2026 Иван Разработчик | Сделано с ❤️ для open source
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Данные о ваших проектах
+        // ЗДЕСЬ ВЫ БУДЕТЕ ДОБАВЛЯТЬ СВОИ ПРОЕКТЫ!
+        const projects = [
+            {
+                title: "✨ Мой первый проект",
+                description: "Краткое описание проекта. Что он делает и какие технологии использует.",
+                tags: ["HTML", "CSS", "JavaScript"],
+                url: "https://github.com/yourusername/project1",
+                icon: "📦"
+            },
+            {
+                title: "🎯 ToDo приложение",
+                description: "Простой и красивый менеджер задач с локальным хранилищем.",
+                tags: ["React", "LocalStorage", "CSS"],
+                url: "https://github.com/yourusername/todo-app",
+                icon: "✅"
+            },
+            {
+                title: "🌤️ Погодный виджет",
+                description: "Приложение для просмотра погоды с использованием OpenWeather API.",
+                tags: ["API", "JavaScript", "Fetch"],
+                url: "https://github.com/yourusername/weather-app",
+                icon: "⛅"
+            },
+            {
+                title: "📊 Дашборд аналитики",
+                description: "Интерактивный дашборд для визуализации данных с графиками.",
+                tags: ["Chart.js", "Vue.js", "Tailwind"],
+                url: "https://github.com/yourusername/dashboard",
+                icon: "📈"
+            }
+        ];
+
+        // Функция для отображения проектов на странице
+        function displayProjects() {
+            const container = document.getElementById('projects-container');
+            
+            if (projects.length === 0) {
+                // Если проектов нет, показываем приглашение
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div style="font-size: 3rem;">🚧</div>
+                        <h3>Скоро здесь появятся проекты</h3>
+                        <p>Я работаю над интересными идеями и скоро поделюсь ими!</p>
+                        <a href="https://github.com/yourusername" class="github-link" target="_blank">
+                            Мой GitHub профиль →
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Отображаем все проекты
+            container.innerHTML = projects.map(project => `
+                <a href="${project.url}" class="project-card" target="_blank">
+                    <div class="project-icon">${project.icon}</div>
+                    <div class="project-title">${project.title}</div>
+                    <div class="project-description">${project.description}</div>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Запускаем отображение при загрузке страницы
+        displayProjects();
+    </script>
 </body>
 </html>
